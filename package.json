@@ -1,0 +1,30 @@
+{
+  "name": "software_chasers",
+  "version": "1.0.0",
+  "description": "This the fourth semester exam project for node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prag0023/nodejs_exam_project.git"
+  },
+  "keywords": [
+    "express",
+    "nodemon",
+    "ajax",
+    "fetch",
+    "sockets"
+  ],
+  "author": "Pragya Chudal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prag0023/nodejs_exam_project/issues"
+  },
+  "homepage": "https://github.com/prag0023/nodejs_exam_project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}
