@@ -1,32 +1,65 @@
 
-<div class="container" style="margin-top: 10rem;">
-<form>
+<div class="container">
+    <h1 class="form-heading">Fill the form</h1>
+    
+<form style="margin-top: 20px;">
     <!-- 2 column grid layout with text inputs for the first and last names -->
     <div class="row mb-4">
       <div class="col">
         <div class="form-outline">
-          <input type="text" id="form3Example1" class="form-control" />
-          <label class="form-label" for="form3Example1">First name</label>
+          <input type="text" id="form3Example1" class="form-control"/>
+          <label class="form-label">First name</label>
         </div>
       </div>
       <div class="col">
         <div class="form-outline">
           <input type="text" id="form3Example2" class="form-control" />
-          <label class="form-label" for="form3Example2">Last name</label>
+          <label class="form-label">Last name</label>
         </div>
       </div>
     </div>
   
     <!-- Email input -->
     <div class="form-outline mb-4">
+        <input type="number" id="form3Example3" class="form-control" />
+        <label class="form-label">Phone Number</label>
+      </div>
+    <div class="form-outline mb-4">
       <input type="email" id="form3Example3" class="form-control" />
-      <label class="form-label" for="form3Example3">Email address</label>
+      <label class="form-label">Email address</label>
+    </div>
+
+    <!-- dropdown -->
+    <!-- <div class="input-group mb-3">
+      <input type="text" class="form-control" aria-label="Text input with dropdown button">
+      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Choose Course</button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="/">Action</a></li>
+        <li><a class="dropdown-item" href="/courses">Another action</a></li>
+        <li><a class="dropdown-item" href="/courses">Something else here</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/courses">Separated link</a></li>
+      </ul>
+    </div> -->
+
+    <div class="input-group">
+      <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+      <button type="button" class="btn btn-outline-secondary">Action</button>
+      <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="visually-hidden">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Separated link</a></li>
+      </ul>
     </div>
   
     <!-- Password input -->
-    <div class="form-outline mb-4">
-      <input type="password" id="form3Example4" class="form-control" />
-      <label class="form-label" for="form3Example4">Password</label>
+    <div class="form-outline mb-4" style="margin-top: 4rem;">
+      <textarea name="text" placeholder="Your message here" id="" cols="160" rows="5"></textarea>
     </div>
   
     <!-- Checkbox -->
@@ -44,26 +77,10 @@
     </div>
   
     <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
-  
-    <!-- Register buttons -->
-    <div class="text-center">
-      <p>or sign up with:</p>
-      <button type="button" class="btn btn-primary btn-floating mx-1">
-        <i class="fab fa-facebook-f"></i>
-      </button>
-  
-      <button type="button" class="btn btn-primary btn-floating mx-1">
-        <i class="fab fa-google"></i>
-      </button>
-  
-      <button type="button" class="btn btn-primary btn-floating mx-1">
-        <i class="fab fa-twitter"></i>
-      </button>
-  
-      <button type="button" class="btn btn-primary btn-floating mx-1">
-        <i class="fab fa-github"></i>
-      </button>
-    </div>
+
+    <div class="d-grid gap-2">
+        <button class="btn btn-primary" type="button">Sign Up</button>
+      </div>
   </form>
   </div>
+</div>

@@ -1,0 +1,17 @@
+#footer {
+    display: flex;
+    margin-top: 80px;
+    justify-content: center;
+}
+
+.footer-image {
+    width: 3%;
+}
+
+.footer-link {
+    padding: 5px 8px;
+}
+
+.copyright {
+    padding: 8px;
+}

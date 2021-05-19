@@ -2,6 +2,10 @@
     width: 30%;
 }
 
-.navbar-brand {
-    background-color: rgb(255, 255, 255);
+#main-content {
+    min-height: calc(100vh - 120px);
 }
+
+
+
+

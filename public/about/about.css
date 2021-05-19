@@ -1,0 +1,24 @@
+#title.container-fluid {
+    padding: 3% 10% 7%;
+    text-align: left;
+    margin-top: 10rem;
+  }
+
+  .title-image {
+    width: 40%;
+    /* margin: 0 0 0 100px; */
+    transform: rotate(60deg);
+    right: 10%;
+    position: absolute;
+  }
+
+  #title1.container-fluid {
+    padding: 3% 10% 7%;
+    text-align: left;
+    margin-top: 10rem;
+    background-color: rgb(79, 202, 233); ;
+  }
+  #sub-title {
+    padding: 3% 7% 2%;
+  }
+  
