@@ -2,12 +2,10 @@ const express = require("express");
 const app = express();
 const fs = require("fs");
 
-const descriptionRouter = require("./routes/description.js");
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(express.json());
-app.use(descriptionRouter.router);
+
 
 const header = fs.readFileSync(__dirname + "/public/header/header.html", "utf-8");
 const footer = fs.readFileSync(__dirname + "/public/footer/footer.html", "utf-8");
@@ -16,7 +14,7 @@ const frontpage = fs.readFileSync(__dirname + "/public/frontpage/frontpage.html"
 const register = fs.readFileSync(__dirname + "/public/register/register.html");
 const about = fs.readFileSync(__dirname + "/public/about/about.html");
 const courses = fs.readFileSync(__dirname + "/public/courses/courses.html")
-const description = fs.readFileSync(__dirname + "/public/description/description.html");
+
 
 
 app.get("/", (req,res) => {
@@ -33,11 +31,6 @@ app.get("/about", (req, res) => {
 
 app.get("/courses", (req, res) => {
     res.send(header + courses + footer);
-});
-
-app.get("/description", (req,res) => {
-    res.send(header + description + footer);
-
 });
 
 
