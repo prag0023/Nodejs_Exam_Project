@@ -16,6 +16,13 @@ const about = fs.readFileSync(__dirname + "/public/about/about.html");
 const courses = fs.readFileSync(__dirname + "/public/courses/courses.html")
 
 
+//-----------------MongoDB----------------------//
+
+
+
+
+
+
 
 app.get("/", (req,res) => {
     res.send(header + frontpage + footer);

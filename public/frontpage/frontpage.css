@@ -1,0 +1,30 @@
+
+
+/* Testimonial Section */
+#testimonials {
+    background-color: #1c8ce7;
+  }
+  
+  .testimonial-image {
+    width: 10%;
+    border-radius: 100%;
+    margin: 20px;
+  }
+  
+  .testimonial-text {
+    font-family: cursive;
+    font-size: 3rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+  
+  /* #press {
+    background-color: #7eca6c;
+    padding-bottom: 3%;
+  }
+  
+  .press-logo {
+    width: 15%;
+    margin: 20px 20px 50px;
+  }
+   */
