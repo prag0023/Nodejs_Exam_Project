@@ -2,6 +2,11 @@ const express = require("express");
 const app = express();
 const fs = require("fs");
 
+const server = require("http").createServer(app);
+const io = require("socket.io")(server);
+
+const http = require('http');
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(express.json());
@@ -14,6 +19,14 @@ const frontpage = fs.readFileSync(__dirname + "/public/frontpage/frontpage.html"
 const register = fs.readFileSync(__dirname + "/public/register/register.html");
 const about = fs.readFileSync(__dirname + "/public/about/about.html");
 const courses = fs.readFileSync(__dirname + "/public/courses/courses.html")
+const socket = fs.readFileSync(__dirname + "/public/socket/socket.html")
+
+
+
+app.get("/socket", (req, res) => {
+    res.send(header + socket + footer);
+   
+});
 
 
 
@@ -33,10 +46,23 @@ app.get("/courses", (req, res) => {
     res.send(header + courses + footer);
 });
 
+io.on('connection' , (socket) => {
+    socket.on('chat message', (msg) => {
+    io.emit('chat message', msg);
 
-const server = app.listen(process.env.PORT || 8080, (error) => {
-    if (error) {
-        console.log(error);
-    }
-    console.log("The server is running on", server.address().port);
+      });
 });
+
+
+
+
+
+server.listen(8080, (error) => {
+   if (error) {
+       console.log(error);
+   }
+    console.log("Server is running on port", 8080);
+});
+
+
+
