@@ -9,11 +9,12 @@
     width: 10%;
     border-radius: 100%;
     margin: 20px;
+    
   }
   
   .testimonial-text {
     font-family: cursive;
-    font-size: 3rem;
+    font-size: 2rem;
     line-height: 1.5;
     text-align: center;
   }

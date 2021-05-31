@@ -1,25 +1,25 @@
-#footer {
-    display: flex;
-    margin-top: 80px;
-    text-align: center;
-}
-/*
-.footer-image {
-    width: 3%;
-}
+    #footer {
+        display: flex;
+        margin-top: 80px;
+        text-align: center;
+    }
+    /*
+    .footer-image {
+        width: 3%;
+    }
 
-.footer-link {
-    padding: 5px 8px;
-}
+    .footer-link {
+        padding: 5px 8px;
+    }
 
-.copyright {
-    padding: 8px;
-} */
+    .copyright {
+        padding: 8px;
+    } */
 
-/* Footer Section */
-.social-icon {
-    margin: 20px 10px;
-  }
-  
-  
-  
+    /* Footer Section */
+    .social-icon {
+        margin: 20px 10px;
+    }
+    
+    
+    
