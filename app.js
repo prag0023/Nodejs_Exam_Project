@@ -29,6 +29,13 @@ app.get("/socket", (req, res) => {
 });
 
 
+//-----------------MongoDB----------------------//
+
+
+
+
+
+
 
 app.get("/", (req,res) => {
     res.send(header + frontpage + footer);
