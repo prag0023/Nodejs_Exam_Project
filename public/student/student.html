@@ -6,6 +6,7 @@
             <th>Email</th>
             <th>Phone</th>
             <th>Message</th>
+            <th></th>
         </tr>
 
         <tbody id="myTable">
@@ -39,8 +40,8 @@
                         <td>${data[i].phone}</td>
                         <td>${data[i].message}</td>
                         <td>
-                            <button type="button" class="btn btn-success btn-sm">Update</button>
-                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                            <button id="t-button" type="button" class="btn btn-success btn-sm">Update</button>
+                            <button id="t-button" type="button" class="btn btn-danger btn-sm">Delete</button>
                         </td>
                     </tr>`
                     table.innerHTML += row;
