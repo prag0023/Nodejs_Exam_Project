@@ -54,7 +54,7 @@
             if (err) {
                 console.log(err);
             }else {
-                res.send(header + about + footer);
+                res.redirect('/about');
             }
         })
     });
@@ -69,7 +69,7 @@
             }else {
                 if (foundUser) {
                     if (foundUser.password === password) {
-                        res.send(header + student + footer);
+                        res.redirect('/students');
                     }
                 }
             }
@@ -111,10 +111,6 @@
         });
     });
 
-    
-
-
-    //app.route("/students/update/:_id")
 
    
     app.post("/register", (req, res) => {
@@ -190,37 +186,6 @@
             }
         );
     })
-
-
-   /* .delete(function(req, res){
-
-    Student.deleteOne(
-        {_id: req.params._id},
-        function(err){
-        if (!err){
-            res.send("Successfully deleted the corresponding article.");
-        } else {
-            res.send(err);
-        }
-        }
-    );
-    })
-
-    .patch(function(req, res){
-        Student.findByIdAndUpdate(
-        {_id: req.params._id},
-        {$set: req.body},
-        function(err){
-            if(!err){
-            res.send("Successfully updated");
-            } else {
-            res.send(err);
-            }
-        }
-        );
-    });
-    */
-
  
     //----------------------------------------------------------//
 
@@ -258,7 +223,7 @@
     })
 
     app.get("/socket", (req, res) => {
-        res.send(header + socket + footer);
+        res.send(header + socket);
     
     });
 

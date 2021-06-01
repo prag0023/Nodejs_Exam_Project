@@ -12,7 +12,6 @@
             <th>Course</th>
             <th></th>
         </tr>
-       
 
         <tbody id="myTable">
 
@@ -37,8 +36,8 @@
                         <td>${data[i].phone}</td>
                         <td>${data[i].course}</td>
                         <td id="buttons">
-                            <a href="/students/update/${data[i]._id}"><button id="t-button" type="button" class="btn btn-success btn-sm">Update</button></a>
-                            <button type="button" class="btn btn-danger btn-sm" data-id="${data[i]._id}" >Delete</button>
+                            <a href="/students/update/${data[i]._id}"><button id="t-button" type="button" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></button></a>
+                            <button type="button" class="btn btn-danger btn-sm" data-id="${data[i]._id}" ><i class="fas fa-trash-alt"></i></button>
                         </td>
                     </tr>`
                     table.innerHTML += row;
@@ -49,7 +48,6 @@
 
 
 table.addEventListener('click', event => {
-  // Check if it’s the list element, we want the clicks only from them
   
   if(event.target.classList.contains("btn-danger")){
   
@@ -64,7 +62,6 @@ table.addEventListener('click', event => {
                 location.reload();
             }
         })
-        ///location.reload()
   }
   
 })
