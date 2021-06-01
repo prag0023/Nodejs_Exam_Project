@@ -1,7 +1,10 @@
     const express = require("express");
     const mongoose = require("mongoose");
-    const app = express();
     const fs = require("fs");
+    
+
+    const app = express();
+    
 
     const server = require("http").createServer(app);
     const io = require("socket.io")(server);
@@ -23,14 +26,57 @@
     const socket = fs.readFileSync(__dirname + "/public/socket/socket.html", "utf-8");
     const student = fs.readFileSync(__dirname + "/public/student/student.html", "utf-8");
     const updateStudent = fs.readFileSync(__dirname + "/public/updateStudent/updateStudent.html", "utf-8");
+    const login = fs.readFileSync(__dirname + "/public/login/login.html", "utf-8");
+    const adminRegister = fs.readFileSync(__dirname + "/public/adminRegister/adminRegister.html", "utf-8");
 
 
 
-    //-----------------MongoDB----------------------//
+    //-----------------MongoDB USER----------------------//
     mongoose.connect("mongodb://localhost:27017/SChasersDB", {
         useNewUrlParser: true,
         useUnifiedTopology: true
     });
+
+    const userSchema = {
+        email: String,
+        password: String
+    };
+    
+    
+    const User = mongoose.model("User", userSchema);
+
+    app.post('/adminregister', (req, res) => {
+        const newUser = new User ({
+            email: req.body.username,
+            password: req.body.password
+        });
+        newUser.save((err) => {
+            if (err) {
+                console.log(err);
+            }else {
+                res.render('/students');
+            }
+        })
+    });
+    
+    app.post('/adminlogin', (req, res) => {
+        const username = req.body.username;
+        const password = req.body.password;
+    
+        User.findOne({ email: username}, (err, foundUser) => {
+            if (err) {
+                console.log(err);
+            }else {
+                if (foundUser) {
+                    if (foundUser.password === password) {
+                        res.send(header + student + footer);
+                    }
+                }
+            }
+        });
+    });
+
+    //----------------------------------//
 
     const studentSchema = {
         firstName: String,
@@ -43,6 +89,7 @@
         phone: String, 
         message: String
     };
+
 
     const Student = mongoose.model("Student", studentSchema);
 
@@ -62,21 +109,9 @@
             }else {
                 res.send(err);
             }
-        })
-    })
-    .put(function(req, res){
+        });
+    });
 
-        Article.update(
-          {title: req.params.articleTitle},
-          {title: req.body.title, content: req.body.content},
-          {overwrite: true},
-          function(err){
-            if(!err){
-              res.send("Successfully updated the selected article.");
-            }
-          }
-        );
-      })
 
       /* ------------------------ */
     
@@ -95,7 +130,8 @@
 
     newStudent.save((err) => {
         if (!err) {
-            res.send("saved");
+           
+            res.send(header + frontpage + footer);
             
         }else {
             res.send(err);
@@ -140,7 +176,15 @@
 
     app.get("/students/update", (req, res) => {
         res.send(header + updateStudent + footer);
-    }) 
+    });
+
+    app.get("/adminlogin", (req, res) => {
+        res.send(header + login + footer)
+    });
+
+    app.get("/adminregister", (req, res) => {
+        res.send(header + adminRegister + footer);
+    })
 
     app.get("/socket", (req, res) => {
         res.send(header + socket + footer);
