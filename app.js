@@ -54,7 +54,7 @@
             if (err) {
                 console.log(err);
             }else {
-                res.render('/students');
+                res.send(header + about + footer);
             }
         })
     });
@@ -87,23 +87,22 @@
         country: String,
         email: String,
         phone: String, 
-        message: String
+        course: String
     };
 
 
     const Student = mongoose.model("Student", studentSchema);
 
-    app.route("/students", (req, res) => {
-        Student.find(function(err, foundStudents){
-            if (!err) {
-                res.send(foundStudents);
-            }else {
-                res.send(err);
-            } 
-        });
+
+    app.get('/students', (req, res) => {
+       res.send(header + student + footer) 
     })
-    .delete((req, res) => {
-        Student.deleteMany((err) => {
+    app.get("/students/update/:_id", function(req, res){
+        res.send(header + updateStudent + footer)
+    })
+
+    app.delete("/students", (req, res) => {
+      Student.deleteMany((err) => {
             if (!err) {
                 res.send("Successfully deleted all students");
             }else {
@@ -112,46 +111,118 @@
         });
     });
 
-
-      /* ------------------------ */
     
-    app.post("/register", (req, res) => {
-    const newStudent = new Student({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        address:req.body.address,
-        city: req.body.city,
-        zip:req.body.zip,
-        country:req.body.country,
-        email: req.body.email,
-        phone: req.body.phone,
-        message: req.body.message 
-    });
 
-    newStudent.save((err) => {
-        if (!err) {
-           
-            res.send(header + frontpage + footer);
+
+    //app.route("/students/update/:_id")
+
+   
+    app.post("/register", (req, res) => {
+        const newStudent = new Student({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            address:req.body.address,
+            city: req.body.city,
+            zip:req.body.zip,
+            country:req.body.country,
+            email: req.body.email,
+            phone: req.body.phone,
+            course: req.body.course 
+        });
+    
+        newStudent.save((err) => {
+            if (!err) {
+               
+                res.send(header + frontpage + footer);
+                
+            }else {
+                res.send(err);
+            }
+        });
+        
+        });
+
+    app.get('/getStudents', function(req, res){
+        Student.find(function(err, foundStudents){
             
-        }else {
+            if (!err) {
+                res.json(foundStudents)
+            }else {
+                res.send(err);
+            } 
+        });
+    })
+    app.post('/getStudent', function(req, res) {
+
+        Student.findOne({_id: req.body.id}, function(err, foundStudent){
+            if (foundStudent) {
+                res.send(foundStudent)
+            //res.send(header + updateStudent + footer);
+            } else {
+            res.send("No articles matching that title was found.");
+            }
+    })
+})
+
+    app.post('/postStudentUpdate', function(req, res) {
+       // console.log(req)
+        Student.findByIdAndUpdate(req.body.id, req.body, function(err){
+            if(err){
+                res.send(err)
+            }
+            else{
+                 //save to database
+                res.redirect('/students')
+            }
+        })
+       
+    })
+    app.post('/deleteStudent', function(req, res){
+
+        Student.deleteOne(
+            {_id: req.body.id},
+            function(err){
+            if (!err){
+                res.json({success: "DELETED"});
+            } else {
+                res.send(err);
+            }
+            }
+        );
+    })
+
+
+   /* .delete(function(req, res){
+
+    Student.deleteOne(
+        {_id: req.params._id},
+        function(err){
+        if (!err){
+            res.send("Successfully deleted the corresponding article.");
+        } else {
             res.send(err);
         }
-        //    res.redirect("/");
+        }
+    );
+    })
+
+    .patch(function(req, res){
+        Student.findByIdAndUpdate(
+        {_id: req.params._id},
+        {$set: req.body},
+        function(err){
+            if(!err){
+            res.send("Successfully updated");
+            } else {
+            res.send(err);
+            }
+        }
+        );
     });
-    
-    });
+    */
 
-    
-
-
-
-
-
+ 
     //----------------------------------------------------------//
-
-
-
-
 
 
     app.get("/", (req,res) => {

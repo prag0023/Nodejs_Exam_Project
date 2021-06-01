@@ -9,7 +9,7 @@
             <th>Country</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>Message</th>
+            <th>Course</th>
             <th></th>
         </tr>
        
@@ -20,33 +20,10 @@
     </table>
 
   <script>
-        let myArray = 
-            [{"_id":"60b4127cd68a3b924d3e1da0","firstName":"Neymar","lastName":"Rawal","address":"Gentofte","city": "Copenhagen", "zip":"2400", "country": "Denmark", "email":"neymar@neymar.com","phone":"333333","message":"I Like it"},
-
-
-            {"_id":"60b41e8abc28868ed1a3fb2b","firstName":"Strom","lastName":"Chasers","address":"Gentofte","city": "Copenhagen", "zip":"2400", "country": "Denmark", "email":"chasers@strom.com","phone":"34343333333","message":"eheyeyeye you","__v":0},
-
-            {"_id":"60b4237a387a9992a1d5a0f2","firstName":"Strom","lastName":"Chasers","address":"Gentofte","city": "Copenhagen", "zip":"2400", "country": "Denmark", "email":"chasers@strom.com","phone":"34343333333","message":"eheyeyeye you","__v":0},
-
-            {"_id":"60b423aca81a899302c9f8d2","firstName":"Strom","lastName":"Chasers","address":"Gentofte","city": "Copenhagen", "zip":"2400", "country": "Denmark","email":"chasers@strom.com","phone":"34343333333","message":"eheyeyeye you","__v":0},
-
-            {"_id":"60b49121260538952346986a","firstName":"sam","lastName":"sung","address":"Gentofte","city": "Copenhagen", "zip":"2400", "country": "Denmark", "email":"sam@sung.com","phone":"9998887771","message":"sam has started singing","__v":0},
-
-            {"_id":"60b4913a2639869549d790ae","firstName":"sam","lastName":"sung","address":"Gentofte","city": "Copenhagen", "zip":"2400", "country": "Denmark", "email":"sam@sung.com","phone":"9998887771","message":"sam has started singing","__v":0},
-
-            {"_id":"60b4914ae2fb839571f78026","firstName":"sam","lastName":"sung","address":"Gentofte","city": "Copenhagen", "zip":"2400", "country": "Denmark", "email":"sam@sung.com","phone":"9998887771","message":"sam has started singing","__v":0},
-
-            {"_id":"60b4d22bbc6e62a088fa31d1","firstName":"Prag","lastName":"ue","address":"Gentofte","city": "Copenhagen", "zip":"2400", "country": "Denmark","email":"prag@ue.com","phone":"3939339","message":"I don't know what to say","__v":0},
-
-            {"_id":"60b539c0e31758040ae7f822","firstName":"Noel","lastName":"Rawal","address":"Gentofte","city": "Copenhagen", "zip":"2400", "country": "Denmark", "email":"noel@rawal.co","phone":"13344","message":"whatis your name","__v":0},
-
-            {"_id":"60b53a75824d6a04d71e7f3c","firstName":"Rawal","lastName":"noel","address":"Gentofte","city": "Copenhagen", "zip":"2400", "country": "Denmark", "email":"rawal@noel.com","phone":"1234567856","message":"im badmas","__v":0},
-
-            {"_id":"60b54c55cb7fb9139fa46088","firstName":"qwe","lastName":"qwas","address":"Gentofte","city": "Copenhagen", "zip":"2400", "country": "Denmark", "email":"q@aaaa.bfd","phone":"546324","message":"231","__v":0}]
-
-        buildTable(myArray)
-        function buildTable(data) {
-            let table = document.getElementById('myTable');
+    const table = document.getElementById('myTable');
+      async function fetchData(){
+          const response = await fetch('http://localhost:8080/getStudents');
+          const data = await response.json();
 
             for (let i = 0; i < data.length; i++) {
                 let row = `<tr>
@@ -58,13 +35,38 @@
                         <td>${data[i].country}</td>
                         <td>${data[i].email}</td>
                         <td>${data[i].phone}</td>
-                        <td>${data[i].message}</td>
-                        <td>
-                            <a href="/students/update/:_id"><button id="t-button" type="button" class="btn btn-success btn-sm">Update</button></a>
-                            <a href="/students/delete/:_id"><button id="t-button" type="button" class="btn btn-danger btn-sm">Delete</button></a>
+                        <td>${data[i].course}</td>
+                        <td id="buttons">
+                            <a href="/students/update/${data[i]._id}"><button id="t-button" type="button" class="btn btn-success btn-sm">Update</button></a>
+                            <button type="button" class="btn btn-danger btn-sm" data-id="${data[i]._id}" >Delete</button>
                         </td>
                     </tr>`
                     table.innerHTML += row;
             }
-        }
+
+      }
+     fetchData();
+
+
+table.addEventListener('click', event => {
+  // Check if it’s the list element, we want the clicks only from them
+  
+  if(event.target.classList.contains("btn-danger")){
+  
+        const id = event.target.dataset.id; 
+        fetch(`http://localhost:8080/deleteStudent`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({id})}).then((data)=>{
+            if(data.statusText === "OK"){
+                location.reload();
+            }
+        })
+        ///location.reload()
+  }
+  
+})
     </script> 
+    
