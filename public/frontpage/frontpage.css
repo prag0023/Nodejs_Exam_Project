@@ -1,22 +1,31 @@
 
 
 /* Testimonial Section */
+.col {
+  margin-top: 40px;
+  font-family: 'Times New Roman';
+  font-size:large;
+  
+}
+
 #testimonials {
-    background-color: #1c8ce7;
+    background-color: #aed5f5;
   }
   
   .testimonial-image {
     width: 10%;
     border-radius: 100%;
-    margin: 20px;
+    margin: 10px;
+
     
   }
   
   .testimonial-text {
     font-family: cursive;
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 1.5;
     text-align: center;
+    margin-left: 20px;
   }
   
   /* #press {

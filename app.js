@@ -34,6 +34,12 @@
     const studentSchema = {
         firstName: String,
         lastName: String,
+        address:String,
+        city:String,
+        zip: String,
+        country: String,
+        age: String,
+        education:String,
         email: String,
         phone: String, 
         message: String
@@ -79,6 +85,12 @@
     const newStudent = new Student({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        address:req.body.address,
+        city: req.body.city,
+        zip:req.body.zip,
+        country:req.body.country,
+        age: req.body.age,
+        education: req.body.education,
         email: req.body.email,
         phone: req.body.phone,
         message: req.body.message 

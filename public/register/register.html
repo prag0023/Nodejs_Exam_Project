@@ -1,63 +1,112 @@
 
-  <div class="container">
-      <h1 class="form-heading">Please the enrollment form</h1>
-      
-  <form action="/register" method="POST" style="margin-top: 20px;">
-      <div class="row mb-4">
-        <div class="col">
-          <div class="form-outline">
-            <input type="text" id="form3Example1" class="form-control" name="firstName"/>
-            <label class="form-label">First name</label>
+      <div class="container">
+          <h1 class="form-heading">Please the enrollment form</h1>
+          
+      <form action="/register" method="POST" style="margin-top: 20px;">
+          <div class="row mb-4">
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" id="form3Example1" class="form-control" name="firstName"/>
+                <label class="form-label">First name</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" id="form3Example2" class="form-control" name="lastName"/>
+                <label class="form-label">Last name</label>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="form-outline">
-            <input type="text" id="form3Example2" class="form-control" name="lastName"/>
-            <label class="form-label">Last name</label>
-          </div>
-        </div>
-      </div>
 
-      <div class="row mb-4">
-        <div class="col">
-          <div class="form-outline">
-            <input type="email" id="form3Example1" class="form-control" name="email"/>
-            <label class="form-label">Email</label>
+          <!-- ----------------------- -->
+          <div class="row mb-4">
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" id="form3Example1" class="form-control" name="address"/>
+                <label class="form-label">Address</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" id="form3Example2" class="form-control" name="city"/>
+                <label class="form-label">City </label>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="form-outline">
-            <input type="text" id="form3Example2" class="form-control" name="phone"/>
-            <label class="form-label">Phone</label>
+          <!-- ----------------------- -->
+
+
+          <div class="row mb-4">
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" id="form3Example1" class="form-control" name="zip"/>
+                <label class="form-label">Zip Code</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" id="form3Example2" class="form-control" name="country"/>
+                <label class="form-label">Country </label>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    
 
-      <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">Languages</label>
-        <select class="form-select" id="inputGroupSelect01">
-          <option selected>Choose...</option>
-          <option value="1">Java</option>
-          <option value="2">JavaScript</option>
-          <option value="3">Python</option>
-          <option value="4">HTML</option>
-          <option value="5">React</option>
-          <option value="6">Angular</option>
-          <option value="7">MySQL</option>
-          <option value="8">CSS</option>
-          <option value="9">C#</option>
-        </select>
-      </div>
-    
-      <div class="form-outline mb-4" style="margin-top: 4rem;">
-        <textarea name="message" placeholder="Your message here" id="" cols="130" rows="5"></textarea>
-      </div> 
-    
-      <!-- Submit button -->
+          <!-- ----------------------- -->
+          <div class="row mb-4">
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" id="form3Example1" class="form-control" name="age"/>
+                <label class="form-label">Age</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" id="form3Example2" class="form-control" name="education"/>
+                <label class="form-label">Education level</label>
+              </div>
+            </div>
+          </div>
+          <!-- ----------------------- -->
+          <div class="row mb-4">
+            <div class="col">
+              <div class="form-outline">
+                <input type="email" id="form3Example1" class="form-control" name="email"/>
+                <label class="form-label">Email</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" id="form3Example2" class="form-control" name="phone"/>
+                <label class="form-label">Phone</label>
+              </div>
+            </div>
+          </div>
+        <!-- ----------------------- -->
 
-      <div class="d-grid gap-2">
-          <button class="btn btn-outline-success" type="submit">Sign Up</button>
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Course</label>
+            <select class="form-select" id="inputGroupSelect01">
+              <option selected>Choose...</option>
+              <option value="1">Java</option>
+              <option value="2">JavaScript</option>
+              <option value="3">Python</option>
+              <option value="4">HTML</option>
+              <option value="5">React</option>
+              <option value="6">Angular</option>
+              <option value="7">MySQL</option>
+              <option value="8">CSS</option>
+              <option value="9">C#</option>
+            </select>
+          </div>
+        <!-- ----------------------- -->
+          <div class="form-outline mb-4" style="margin-top: 4rem;">
+            <textarea name="message" placeholder="Your message here" id="" cols="130" rows="5"></textarea>
+          </div> 
+        
+          <!-- Submit button -->
+
+          <div class="d-grid gap-2">
+              <button class="btn btn-outline-success" type="submit">Sign Up</button>
+            </div>
+        </form>
         </div>
-    </form>
-    </div>
