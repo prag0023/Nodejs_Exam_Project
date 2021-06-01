@@ -39,8 +39,6 @@
         city:String,
         zip: String,
         country: String,
-        age: String,
-        education:String,
         email: String,
         phone: String, 
         message: String
@@ -90,8 +88,6 @@
         city: req.body.city,
         zip:req.body.zip,
         country:req.body.country,
-        age: req.body.age,
-        education: req.body.education,
         email: req.body.email,
         phone: req.body.phone,
         message: req.body.message 
