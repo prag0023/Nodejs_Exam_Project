@@ -22,6 +22,7 @@
     const courses = fs.readFileSync(__dirname + "/public/courses/courses.html", "utf-8");
     const socket = fs.readFileSync(__dirname + "/public/socket/socket.html", "utf-8");
     const student = fs.readFileSync(__dirname + "/public/student/student.html", "utf-8");
+    const updateStudent = fs.readFileSync(__dirname + "/public/updateStudent/updateStudent.html", "utf-8");
 
 
 
@@ -140,6 +141,10 @@
     app.get("/students", (req, res) => {
         res.send(header + student + footer)
     })
+
+    app.get("/students/update", (req, res) => {
+        res.send(header + updateStudent + footer);
+    }) 
 
     app.get("/socket", (req, res) => {
         res.send(header + socket + footer);

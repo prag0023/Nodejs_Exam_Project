@@ -14,6 +14,7 @@
             <th>Message</th>
             <th></th>
         </tr>
+       
 
         <tbody id="myTable">
 
@@ -62,8 +63,8 @@
                         <td>${data[i].phone}</td>
                         <td>${data[i].message}</td>
                         <td>
-                            <button id="t-button" type="button" class="btn btn-success btn-sm">Update</button>
-                            <button id="t-button" type="button" class="btn btn-danger btn-sm">Delete</button>
+                            <a href="/students/update/:_id"><button id="t-button" type="button" class="btn btn-success btn-sm">Update</button></a>
+                            <a href="/students/delete/:_id"><button id="t-button" type="button" class="btn btn-danger btn-sm">Delete</button></a>
                         </td>
                     </tr>`
                     table.innerHTML += row;
