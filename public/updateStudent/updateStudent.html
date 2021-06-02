@@ -1,6 +1,6 @@
 <script>
     const id = window.location.pathname.split('/').pop();
-    const request = fetch('http://localhost:8080/getStudent', {
+    const request = fetch('https://cryptic-ridge-19464.herokuapp.com/getStudent', {
         method: 'POST', // or 'PUT'
         headers: {
             'Content-Type': 'application/json',
