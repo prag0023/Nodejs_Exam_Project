@@ -1,31 +1,30 @@
+<table class="table table-striped">
+    <tr class="bg-info">
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Zip Code</th>
+        <th>Country</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Course</th>
+        <th></th>
+    </tr>
 
-    <table class="table table-striped">
-        <tr class="bg-info">
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>Zip Code</th>
-            <th>Country</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Course</th>
-            <th></th>
-        </tr>
+    <tbody id="myTable">
 
-        <tbody id="myTable">
+    </tbody>
+</table>
 
-        </tbody>
-    </table>
-
-  <script>
+<script>
     const table = document.getElementById('myTable');
-      async function fetchData(){
-          const response = await fetch('http://localhost:8080/getStudents');
-          const data = await response.json();
+    async function fetchData() {
+        const response = await fetch('http://localhost:8080/getStudents');
+        const data = await response.json();
 
-            for (let i = 0; i < data.length; i++) {
-                let row = `<tr>
+        for (let i = 0; i < data.length; i++) {
+            let row = `<tr>
                         <td>${data[i].firstName}</td>
                         <td>${data[i].lastName}</td>
                         <td>${data[i].address}</td>
@@ -40,30 +39,32 @@
                             <button type="button" class="btn btn-danger btn-sm" data-id="${data[i]._id}" ><i class="fas fa-trash-alt"></i></button>
                         </td>
                     </tr>`
-                    table.innerHTML += row;
-            }
+            table.innerHTML += row;
+        }
 
-      }
-     fetchData();
+    }
+    fetchData();
 
 
-table.addEventListener('click', event => {
-  
-  if(event.target.classList.contains("btn-danger")){
-  
-        const id = event.target.dataset.id; 
-        fetch(`http://localhost:8080/deleteStudent`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({id})}).then((data)=>{
-            if(data.statusText === "OK"){
-                location.reload();
-            }
-        })
-  }
-  
-})
-    </script> 
-    
+    table.addEventListener('click', event => {
+
+        if (event.target.classList.contains("btn-danger")) {
+
+            const id = event.target.dataset.id;
+            fetch(`http://localhost:8080/deleteStudent`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    id
+                })
+            }).then((data) => {
+                if (data.statusText === "OK") {
+                    location.reload();
+                }
+            })
+        }
+
+    })
+</script>

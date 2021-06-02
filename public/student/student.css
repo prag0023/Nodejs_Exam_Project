@@ -2,7 +2,7 @@
     color: #fff;
 } */
 
-tr:nth-child(even){
+tr:nth-child(even) {
     background-color: rgb(20, 178, 218);
 }
 
