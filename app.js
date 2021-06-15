@@ -1,7 +1,7 @@
     const express = require("express");
     const mongoose = require("mongoose");
     const fs = require("fs");
-    const dotenv = require('dotenv');
+    // const dotenv = require('dotenv');
 
 
     const app = express();
@@ -35,7 +35,7 @@
 
 
     //-----------------MongoDB USER----------------------//
-    mongoose.connect("mongodb+srv://admin-niren:Test123@cluster0.apmqf.mongodb.net/SChasersDB", {
+    mongoose.connect("mongodb://localhost/SChasersDB", {
         useNewUrlParser: true,
         useUnifiedTopology: true
     });
@@ -102,7 +102,7 @@
     app.get('/students', (req, res) => {
         res.send(header + student + footer)
     })
-    app.get("/students/update/:_id", function (req, res) {
+    app.get("/students/update/:_id",  (req, res) => {
         res.send(header + updateStudent + footer)
     })
 
@@ -143,7 +143,7 @@
 
     });
 
-    app.get('/getStudents', function (req, res) {
+    app.get('/getStudents',  (req, res) => {
         Student.find(function (err, foundStudents) {
 
             if (!err) {
@@ -153,7 +153,7 @@
             }
         });
     })
-    app.post('/getStudent', function (req, res) {
+    app.post('/getStudent',  (req, res) => {
 
         Student.findOne({
             _id: req.body.id
@@ -166,7 +166,7 @@
         })
     })
 
-    app.post('/postStudentUpdate', function (req, res) {
+    app.post('/postStudentUpdate',  (req, res) => {
         Student.findByIdAndUpdate(req.body.id, req.body, function (err) {
             if (err) {
                 res.send(err)
@@ -176,7 +176,7 @@
         })
 
     })
-    app.post('/deleteStudent', function (req, res) {
+    app.post('/deleteStudent',  (req, res) => {
 
         Student.deleteOne({
                 _id: req.body.id
@@ -240,16 +240,12 @@
         });
     });
 
+    const port = process.env.PORT || 8080
 
-
-    let port = process.env.PORT;
-    if (port == null || port == "") {
-        port = 8080;
-    }
-
-    app.listen(port, (error) => {
+    server.listen(port, (error) => {
         if (error) {
             console.log(error);
         }
-        console.log("Server has started successfully!!");
+        console.log("Server is running on port", server.address().port);
     });
+
