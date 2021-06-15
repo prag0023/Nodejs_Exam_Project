@@ -35,7 +35,7 @@
 
 
     //-----------------MongoDB USER----------------------//
-    mongoose.connect("mongodb+srv://admin-niren:Test123@cluster0.apmqf.mongodb.net/SChasersDB", {
+    mongoose.connect("mongodb://localhost/SChasersDB", {
         useNewUrlParser: true,
         useUnifiedTopology: true
     });
@@ -240,6 +240,7 @@
         });
     });
 
+    
     const port = process.env.PORT || 8080
 
     server.listen(port, (error) => {
